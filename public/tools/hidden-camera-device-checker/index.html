@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hidden Camera Device Checker: Free MAC Address Lookup</title>
+<meta name="description" content="Paste any MAC address from your Wi-Fi network and instantly see if it belongs to a known camera brand like Hikvision, Wyze, or Ring. Free, no signup.">
+<link rel="canonical" href="https://rfsignaldetectorapp.com/tools/hidden-camera-device-checker/">
+<meta property="og:site_name" content="RF Signal Detector">
+<meta property="og:title" content="Hidden Camera Device Checker: Free MAC Address Lookup">
+<meta property="og:description" content="Paste any MAC address from your Wi-Fi network and instantly see if it belongs to a known camera brand like Hikvision, Wyze, or Ring. Free, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rfsignaldetectorapp.com/tools/hidden-camera-device-checker/">
+<meta property="og:image" content="https://rfsignaldetectorapp.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="apple-itunes-app" content="app-id=6757208480">
+<meta name="theme-color" content="#0F0B1E">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/touch-icon.png">
+<link rel="preload" href="/assets/fonts/spacegrotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Hidden camera device checker","url":"https://rfsignaldetectorapp.com/tools/hidden-camera-device-checker/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","description":"Paste any MAC address from your Wi-Fi network and instantly see if it belongs to a known camera brand like Hikvision, Wyze, or Ring. Free, no signup.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a MAC address?","acceptedAnswer":{"@type":"Answer","text":"A MAC address is a hardware ID that every network device has, written like A4:CF:12:0E:3B:91. The first half identifies the manufacturer, which is registered publicly with the IEEE. That is what this tool looks up."}},{"@type":"Question","name":"Where do I find the MAC addresses of devices on a network?","acceptedAnswer":{"@type":"Answer","text":"Your router's admin page lists connected devices with their MAC addresses, and network scanner apps show them too. RF Signal Detector's network scan lists every device on the Wi-Fi you're connected to."}},{"@type":"Question","name":"A device shows as 'unknown vendor'. Is that suspicious?","acceptedAnswer":{"@type":"Answer","text":"Not by itself. Modern phones and laptops randomize their MAC addresses for privacy, and those randomized addresses are not in the public registry. An unknown entry that stays online 24/7 when no phones are around is worth a closer look."}},{"@type":"Question","name":"The vendor is a camera brand. What now?","acceptedAnswer":{"@type":"Answer","text":"Stay calm and verify physically. A Wyze or Hikvision entry means a camera-brand device is on the network, which is normal in a home with doorbells or baby monitors, but in a rental you were told had no indoor cameras it is a red flag. Find it, photograph it, and report it."}}]}</script>
+</head>
+<body class="page-tool">
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="RF Signal Detector home">
+      <svg class="brand-mark" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><circle cx="12" cy="12" r="10.5" fill="none" stroke="#6366F1" stroke-width="1.4"/><circle cx="12" cy="12" r="6" fill="none" stroke="#6366F1" stroke-width="1.1" opacity=".55"/><circle cx="12" cy="12" r="1.8" fill="#8B5CF6"/><circle cx="16.6" cy="8.4" r="1.5" fill="#F59E0B"/></svg>
+      <span>RF Signal Detector</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/guides/">Guides</a>
+      <a href="/tools/hidden-camera-device-checker/">Free checker</a>
+      <a class="btn btn-small" href="https://apps.apple.com/app/rf-signal-detector/id6757208480">Get the app</a>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="tool-shell">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Free tools</span></nav>
+  <h1>Hidden camera device checker</h1>
+  <p class="lead">Every device on a Wi-Fi network has a MAC address, and the first half of it names the manufacturer. Paste one or more MAC addresses below and see instantly whether any belong to a known camera or surveillance brand. Free, no signup, and the lookup runs entirely in your browser.</p>
+
+  <div class="checker">
+    <label for="macs">MAC addresses (one per line, any format)</label>
+    <textarea id="macs" placeholder="A4:CF:12:0E:3B:91&#10;44-D8-78-1A-22-B0&#10;dc4f22aabbcc" spellcheck="false"></textarea>
+    <div class="checker-actions">
+      <button class="btn" id="check">Check devices</button>
+      <span class="hint">Nothing you paste leaves this page.</span>
+    </div>
+    <div id="results" aria-live="polite"></div>
+  </div>
+
+  <h2>How to get the MAC addresses on your network</h2>
+  <p>Three easy ways, from anywhere:</p>
+  <ol>
+    <li><strong>Router admin page.</strong> Open the router's address (often 192.168.1.1) and look for "connected devices" or "DHCP clients". Works at home, rarely possible in a rental.</li>
+    <li><strong>A network scanner app.</strong> <a href="https://apps.apple.com/app/rf-signal-detector/id6757208480">RF Signal Detector</a> scans the Wi-Fi you're connected to and lists every device it finds, so you can check a rental's network in about a minute.</li>
+    <li><strong>Your laptop.</strong> On a Mac, <code>arp -a</code> in Terminal lists devices your computer has seen on the network with their MAC addresses.</li>
+  </ol>
+
+  <h2>How to read the results</h2>
+  <p>A <strong>camera brand</strong> match means the manufacturer primarily makes cameras or surveillance gear. That device deserves a physical look: follow our <a href="/guides/how-to-find-hidden-cameras-in-airbnb/">Airbnb sweep guide</a> or <a href="/guides/how-to-find-hidden-cameras-in-hotel-room/">hotel guide</a> to locate it. A <strong>makes cameras</strong> match means the vendor sells cameras among many other products, like Google or TP-Link, so a doorbell, speaker, or plug is just as likely. <strong>Unknown vendors</strong> are usually phones with randomized addresses, not spies.</p>
+  <p>Remember what this can and cannot prove: a camera that is wired, offline, or on a second hidden network never appears in a Wi-Fi device list. Our guide on <a href="/guides/do-hidden-camera-detector-apps-work/">what detector apps can really do</a> covers those limits honestly.</p>
+
+  <div class="cta-inline">
+    <p><strong>Don't have the MAC list yet?</strong> RF Signal Detector scans the network for you, plus Bluetooth trackers and hidden lenses, right from your iPhone.</p>
+    <a class="btn" href="https://apps.apple.com/app/rf-signal-detector/id6757208480">Get RF Signal Detector free</a>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+  <h3>What is a MAC address?</h3>
+  <p>A MAC address is a hardware ID that every network device has, written like A4:CF:12:0E:3B:91. The first half identifies the manufacturer, which is registered publicly with the IEEE. That is what this tool looks up.</p>
+  <h3>Where do I find the MAC addresses of devices on a network?</h3>
+  <p>Your router's admin page lists connected devices with their MAC addresses, and network scanner apps show them too. RF Signal Detector's network scan lists every device on the Wi-Fi you're connected to.</p>
+  <h3>A device shows as "unknown vendor". Is that suspicious?</h3>
+  <p>Not by itself. Modern phones and laptops randomize their MAC addresses for privacy, and those randomized addresses are not in the public registry. An unknown entry that stays online 24/7 when no phones are around is worth a closer look.</p>
+  <h3>The vendor is a camera brand. What now?</h3>
+  <p>Stay calm and verify physically. A Wyze or Hikvision entry means a camera-brand device is on the network, which is normal in a home with doorbells or baby monitors, but in a rental you were told had no indoor cameras it is a red flag. Find it, photograph it, and report it.</p>
+</div>
+<script src="/assets/checker.js" defer></script>
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <p class="foot-name">RF Signal Detector</p>
+      <p>Find hidden cameras, Bluetooth trackers, and unknown devices with your iPhone.</p>
+      <a class="btn" href="https://apps.apple.com/app/rf-signal-detector/id6757208480">Download on the App Store</a>
+    </div>
+    <nav aria-label="Guides">
+      <p class="foot-title">Guides</p>
+      <a href="/guides/how-to-find-hidden-cameras-in-airbnb/">Hidden cameras in an Airbnb</a>
+      <a href="/guides/how-to-find-hidden-cameras-in-hotel-room/">Hidden cameras in a hotel room</a>
+      <a href="/guides/how-to-detect-gps-tracker-on-car/">GPS tracker on your car</a>
+      <a href="/guides/how-to-find-airtag-tracking-you/">AirTag tracking you</a>
+      <a href="/guides/how-to-detect-listening-devices/">Listening devices</a>
+      <a href="/guides/how-to-tell-if-smoke-detector-has-hidden-camera/">Smoke detector cameras</a>
+      <a href="/guides/do-hidden-camera-detector-apps-work/">Do detector apps work?</a>
+      <a href="/guides/best-hidden-camera-detector-apps/">Best detector apps</a>
+    </nav>
+    <nav aria-label="More">
+      <p class="foot-title">More</p>
+      <a href="/tools/hidden-camera-device-checker/">Free device checker</a>
+      <a href="/guides/">All guides</a>
+      <a href="https://apps.apple.com/app/rf-signal-detector/id6757208480">App Store</a>
+    </nav>
+  </div>
+  <div class="wrap foot-legal"><p>© 2026 RF Signal Detector. Guides are for lawful personal security use.</p></div>
+</footer>
+</body>
+</html>

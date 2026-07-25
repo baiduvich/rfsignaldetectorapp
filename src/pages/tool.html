@@ -1,0 +1,58 @@
+<!--meta
+{
+  "title": "Hidden Camera Device Checker: Free MAC Address Lookup",
+  "description": "Paste any MAC address from your Wi-Fi network and instantly see if it belongs to a known camera brand like Hikvision, Wyze, or Ring. Free, no signup.",
+  "h1": "Hidden camera device checker",
+  "slug": "hidden-camera-device-checker",
+  "date": "2026-07-25",
+  "faq": [
+    {"q": "What is a MAC address?", "a": "A MAC address is a hardware ID that every network device has, written like A4:CF:12:0E:3B:91. The first half identifies the manufacturer, which is registered publicly with the IEEE. That is what this tool looks up."},
+    {"q": "Where do I find the MAC addresses of devices on a network?", "a": "Your router's admin page lists connected devices with their MAC addresses, and network scanner apps show them too. RF Signal Detector's network scan lists every device on the Wi-Fi you're connected to."},
+    {"q": "A device shows as 'unknown vendor'. Is that suspicious?", "a": "Not by itself. Modern phones and laptops randomize their MAC addresses for privacy, and those randomized addresses are not in the public registry. An unknown entry that stays online 24/7 when no phones are around is worth a closer look."},
+    {"q": "The vendor is a camera brand. What now?", "a": "Stay calm and verify physically. A Wyze or Hikvision entry means a camera-brand device is on the network, which is normal in a home with doorbells or baby monitors, but in a rental you were told had no indoor cameras it is a red flag. Find it, photograph it, and report it."}
+  ]
+}
+-->
+<div class="tool-shell">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Free tools</span></nav>
+  <h1>Hidden camera device checker</h1>
+  <p class="lead">Every device on a Wi-Fi network has a MAC address, and the first half of it names the manufacturer. Paste one or more MAC addresses below and see instantly whether any belong to a known camera or surveillance brand. Free, no signup, and the lookup runs entirely in your browser.</p>
+
+  <div class="checker">
+    <label for="macs">MAC addresses (one per line, any format)</label>
+    <textarea id="macs" placeholder="A4:CF:12:0E:3B:91&#10;44-D8-78-1A-22-B0&#10;dc4f22aabbcc" spellcheck="false"></textarea>
+    <div class="checker-actions">
+      <button class="btn" id="check">Check devices</button>
+      <span class="hint">Nothing you paste leaves this page.</span>
+    </div>
+    <div id="results" aria-live="polite"></div>
+  </div>
+
+  <h2>How to get the MAC addresses on your network</h2>
+  <p>Three easy ways, from anywhere:</p>
+  <ol>
+    <li><strong>Router admin page.</strong> Open the router's address (often 192.168.1.1) and look for "connected devices" or "DHCP clients". Works at home, rarely possible in a rental.</li>
+    <li><strong>A network scanner app.</strong> <a href="https://apps.apple.com/app/rf-signal-detector/id6757208480">RF Signal Detector</a> scans the Wi-Fi you're connected to and lists every device it finds, so you can check a rental's network in about a minute.</li>
+    <li><strong>Your laptop.</strong> On a Mac, <code>arp -a</code> in Terminal lists devices your computer has seen on the network with their MAC addresses.</li>
+  </ol>
+
+  <h2>How to read the results</h2>
+  <p>A <strong>camera brand</strong> match means the manufacturer primarily makes cameras or surveillance gear. That device deserves a physical look: follow our <a href="/guides/how-to-find-hidden-cameras-in-airbnb/">Airbnb sweep guide</a> or <a href="/guides/how-to-find-hidden-cameras-in-hotel-room/">hotel guide</a> to locate it. A <strong>makes cameras</strong> match means the vendor sells cameras among many other products, like Google or TP-Link, so a doorbell, speaker, or plug is just as likely. <strong>Unknown vendors</strong> are usually phones with randomized addresses, not spies.</p>
+  <p>Remember what this can and cannot prove: a camera that is wired, offline, or on a second hidden network never appears in a Wi-Fi device list. Our guide on <a href="/guides/do-hidden-camera-detector-apps-work/">what detector apps can really do</a> covers those limits honestly.</p>
+
+  <div class="cta-inline">
+    <p><strong>Don't have the MAC list yet?</strong> RF Signal Detector scans the network for you, plus Bluetooth trackers and hidden lenses, right from your iPhone.</p>
+    <a class="btn" href="https://apps.apple.com/app/rf-signal-detector/id6757208480">Get RF Signal Detector free</a>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+  <h3>What is a MAC address?</h3>
+  <p>A MAC address is a hardware ID that every network device has, written like A4:CF:12:0E:3B:91. The first half identifies the manufacturer, which is registered publicly with the IEEE. That is what this tool looks up.</p>
+  <h3>Where do I find the MAC addresses of devices on a network?</h3>
+  <p>Your router's admin page lists connected devices with their MAC addresses, and network scanner apps show them too. RF Signal Detector's network scan lists every device on the Wi-Fi you're connected to.</p>
+  <h3>A device shows as "unknown vendor". Is that suspicious?</h3>
+  <p>Not by itself. Modern phones and laptops randomize their MAC addresses for privacy, and those randomized addresses are not in the public registry. An unknown entry that stays online 24/7 when no phones are around is worth a closer look.</p>
+  <h3>The vendor is a camera brand. What now?</h3>
+  <p>Stay calm and verify physically. A Wyze or Hikvision entry means a camera-brand device is on the network, which is normal in a home with doorbells or baby monitors, but in a rental you were told had no indoor cameras it is a red flag. Find it, photograph it, and report it.</p>
+</div>
+<script src="/assets/checker.js" defer></script>
