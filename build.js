@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 const SRC = path.join(__dirname, 'src');
-const PUB = path.join(__dirname, 'public');
+const PUB = path.join(__dirname, 'docs');
 const SITE = 'https://rfsignaldetectorapp.com';
 const APP_URL = 'https://apps.apple.com/app/rf-signal-detector/id6757208480';
 const APP_NAME = 'RF Signal Detector';
