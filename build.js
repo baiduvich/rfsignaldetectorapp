@@ -221,6 +221,10 @@ for (const a of articles) {
   console.log('oui.json entries:', Object.keys(db).length);
 }
 
+// ---------- GitHub Pages: CNAME + .nojekyll (docs/ is wiped every build) ----------
+fs.writeFileSync(path.join(PUB, 'CNAME'), 'rfsignaldetectorapp.com\n');
+fs.writeFileSync(path.join(PUB, '.nojekyll'), '');
+
 // ---------- robots, sitemap, 404 ----------
 fs.writeFileSync(path.join(PUB, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
 const today = new Date().toISOString().slice(0, 10);
