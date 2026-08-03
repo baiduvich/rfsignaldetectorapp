@@ -1,10 +1,10 @@
 <!--meta
 {
-  "title": "Do Hidden Camera Detector Apps Work? An Honest Answer",
-  "description": "Do hidden camera detector apps work? An honest, physics-based look at what phone hardware can and cannot detect, and which app claims are snake oil.",
+  "title": "Do Hidden Camera & RF Detector Apps Work? Honest Answer",
+  "description": "Do hidden camera and RF detector apps really work? A physics-based look at what phone hardware can and cannot detect, and which claims are snake oil.",
   "h1": "Do hidden camera detector apps actually work?",
   "slug": "do-hidden-camera-detector-apps-work",
-  "date": "2026-07-25",
+  "date": "2026-08-03",
   "faq": [
     {"q": "Can a phone really detect a hidden camera?", "a": "Yes, in specific cases. A phone can find Wi-Fi cameras that join the same network, detect Bluetooth devices and trackers by name and signal strength, and spot the glint of a camera lens or the glow of infrared LEDs with its camera sensor. It cannot detect cameras that record locally with all radios off, or wired cameras on a separate network."},
     {"q": "Are EMF detector apps for finding cameras a scam?", "a": "Mostly, yes. Those apps read the phone's magnetometer, which senses magnetic fields from magnets and motors, not the radio transmissions of a camera. A magnetometer reading spikes near speakers, fridges, and rebar in walls, so waving your phone around produces alarming numbers that mean almost nothing."},
@@ -47,6 +47,9 @@
 <tr><td>Dedicated RF detector (not an app)</td><td>Analog transmitters, cellular bugs, wireless mics across a wide spectrum</td><td>Powered-off devices, record-only devices</td></tr>
 </tbody>
 </table>
+<h2>Do RF detector apps work?</h2>
+<p>The same question gets asked with different words: do RF detector apps work, do camera detector apps work, can a phone be an RF detector at all. The honest answer follows the same hardware logic. A phone cannot sweep the radio spectrum the way a handheld RF wand does, because its radios only listen on Bluetooth, Wi-Fi, and cellular bands. So an app calling itself an RF detector is really doing something narrower and more specific: detecting the two radio types that consumer spy devices overwhelmingly use, Bluetooth and Wi-Fi, and identifying each transmitter it finds by name and manufacturer instead of showing an anonymous signal-strength needle.</p>
+<p>For the devices people actually encounter, that trade is usually favorable. A $30 RF wand tells you "something is transmitting near the nightstand" and leaves the identification to you; a phone scan tells you "a Hikvision device and an unnamed ESP32 board are on this network," which is far more actionable. The wand still wins on analog and cellular transmitters, which is why the end of this article recommends using both. But if the question is whether an RF detector app on a phone can find the Wi-Fi camera in a rental or the Bluetooth tracker in a bag, the answer is a straightforward yes, and it will name the device while doing it.</p>
 <h2>Real physics versus snake oil</h2>
 <p>You can now evaluate any app listing yourself. Claims built on the Bluetooth radio, the Wi-Fi radio, or the camera sensor describe real physics. Anything else deserves suspicion.</p>
 <p>The worst offenders are the "EMF meter" camera finders. They read the magnetometer, display a dramatic fluctuating gauge, and tell you to wave the phone around the room. The gauge spikes near speakers, power bricks, metal furniture, and rebar inside walls, and the app frames every spike as a possible camera. It is a compass sensor cosplaying as a bug detector. The same goes for apps claiming to "scan all radio frequencies": no phone has the hardware for that, full stop.</p>
