@@ -40,6 +40,9 @@ function ld(obj) {
 const orgSchema = {
   '@context': 'https://schema.org', '@type': 'Organization',
   name: APP_NAME, url: SITE, logo: SITE + '/assets/og.png',
+  email: 'baidovich800122@gmail.com',
+  sameAs: [APP_URL],
+  parentOrganization: { '@type': 'Organization', name: 'NEURASYNC' },
 };
 const appSchema = {
   '@context': 'https://schema.org', '@type': 'SoftwareApplication',
@@ -219,6 +222,18 @@ for (const a of articles) {
   }
   fs.writeFileSync(path.join(PUB, 'assets', 'oui.json'), JSON.stringify(db));
   console.log('oui.json entries:', Object.keys(db).length);
+}
+
+// ---------- simple pages (about, privacy) ----------
+for (const slug of ['about', 'privacy']) {
+  const { meta, content } = parseFragment(path.join(SRC, 'pages', slug + '.html'));
+  const url = `${SITE}/${slug}/`;
+  urls.push({ loc: url, pri: '0.4' });
+  write(`${slug}/index.html`, render({
+    title: meta.title, description: esc(meta.description),
+    canonical: url, ogtype: 'website',
+    schema: ld(orgSchema), bodyclass: 'page-' + slug, content,
+  }));
 }
 
 // ---------- GitHub Pages: CNAME + .nojekyll (docs/ is wiped every build) ----------
