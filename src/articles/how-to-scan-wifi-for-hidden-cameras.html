@@ -1,0 +1,74 @@
+<!--meta
+{
+  "title": "How to Scan WiFi for Hidden Cameras (Step by Step)",
+  "description": "Learn how to scan WiFi for hidden cameras: list every device on the network, read manufacturer names, and spot the results that mean a camera is watching.",
+  "h1": "How to scan WiFi for hidden cameras",
+  "slug": "how-to-scan-wifi-for-hidden-cameras",
+  "date": "2026-08-09",
+  "faq": [
+    {"q": "Can a WiFi scan really find a hidden camera?", "a": "Yes, if the camera is connected to the same WiFi network you are scanning. Most consumer spy cameras stream over WiFi, so they show up as a device with an IP address and a manufacturer name. Cameras that record only to an SD card or use a cellular SIM will not appear, which is why a lens check is the right follow-up."},
+    {"q": "What do hidden cameras show up as on a WiFi scan?", "a": "Common names include IPCAM, V380, ESP32-CAM, Wyze, Yi, or a bare manufacturer name like Hikvision, Dahua, or Espressif. Many cheap cameras appear only as an unknown device with a Chinese electronics vendor in the MAC lookup. A generic result is not proof, but it is a reason to look closer."},
+    {"q": "Why does my scan only show two or three devices in a hotel?", "a": "Hotel WiFi almost always uses client isolation, which hides guests' devices from each other. Your scan will see little more than the gateway, and that is normal, not a sign the room is clean. In hotels, rely on a Bluetooth scan and an infrared lens check instead of the network scan."},
+    {"q": "What should I do if I find a suspicious device on the WiFi?", "a": "Do not disconnect or reset it. Note the device name, IP address, and MAC address, run the MAC through a manufacturer lookup, then physically search the room, focusing on spots with a sightline to the bed or bathroom. If you find a camera in a private area, photograph it in place and contact the platform or local police."}
+  ]
+}
+-->
+<div class="quick-answer"><p>To scan WiFi for hidden cameras, connect to the room's network, run a network scanner that lists every connected device, then check each device's name and manufacturer. Camera results typically show names like IPCAM, V380, or ESP32-CAM, or vendors like Hikvision, Dahua, and Espressif. Anything unexplained deserves a physical search of the room.</p></div>
+<p class="lead">A WiFi camera has to talk to the network to do its job, and that is its weakness. Every device that joins a WiFi network announces itself, and a simple scan can pull up the full guest list: your phone, the smart TV, the thermostat, and, if one is there, the camera. This guide walks through exactly how the scan works, what camera results actually look like, and the two situations where a WiFi scan quietly fails so you know when to switch methods.</p>
+
+<h2>How a WiFi scan actually works</h2>
+<p>Most articles say "run a scanner app" without explaining what happens next, which makes the results hard to interpret. The mechanics are simple.</p>
+<p>When your phone joins a WiFi network, the router assigns it an IP address on the local network, usually something like 192.168.1.x. Every other device on that network has an address in the same range. A network scanner sends a quick probe to every possible address in that range, and every device that answers is on the network with you.</p>
+<p>For each device that responds, the scanner reads two things. First, the hostname, which is the name the device calls itself, like "Samsung-TV" or "IPCAM-4F2A". Second, the MAC address, a hardware identifier burned into the device's network chip. The first half of a MAC address is an OUI, an organizationally unique identifier that maps to the company that made the chip. Look that prefix up in the OUI registry and "unknown device" becomes "made by Hangzhou Hikvision Digital Technology". That lookup is where most cameras give themselves away, and you can run it yourself with our free <a href="/tools/hidden-camera-device-checker/">hidden camera device checker</a>, which flags MAC addresses belonging to known camera brands automatically.</p>
+<p>So the full sequence is: join the network, enumerate every device on it, read each device's name and MAC address, and look up each manufacturer. A scanner app does all four steps in a few seconds. The part that still needs a human is reading the results, so that is where we go next.</p>
+
+<h2>What hidden cameras look like in scan results</h2>
+<p>Cameras rarely label themselves "hidden camera". Here is what you will actually see, based on the most common devices sold as clocks, chargers, smoke detectors, and plain mini cams.</p>
+<table>
+<thead>
+<tr><th>Scan result</th><th>What it usually means</th></tr>
+</thead>
+<tbody>
+<tr><td>IPCAM, IP Camera, NetCam</td><td>A generic IP camera firmware announcing itself honestly. Treat as a camera until proven otherwise.</td></tr>
+<tr><td>V380, YCC365, LookCam, Minicam</td><td>App names used by cheap spy cameras sold on marketplace sites. Strong signal, these are almost always covert-style cameras.</td></tr>
+<tr><td>ESP32-CAM or vendor "Espressif"</td><td>A hobbyist camera module that costs under ten dollars. Espressif chips are in many gadgets, but paired with a camera-style hostname this is a red flag.</td></tr>
+<tr><td>Vendor: Hikvision, Dahua, Reolink, Amcrest</td><td>Dedicated surveillance camera manufacturers. Legitimate outdoors or at a front door, suspicious if the signal points inside your room.</td></tr>
+<tr><td>Wyze, Ring, Nest, Eufy, Blink, Yi</td><td>Consumer smart cameras. Often disclosed in an Airbnb listing, but the listing must say where they are, and never in bedrooms or bathrooms.</td></tr>
+<tr><td>Unknown device, generic Shenzhen vendor</td><td>Not proof of anything, many smart plugs look like this too. Note it, look up the MAC, and let the physical search decide.</td></tr>
+<tr><td>Private or randomized MAC</td><td>Usually a phone or laptop. Modern phones randomize their MAC per network, which hides the real manufacturer. Cameras almost never do this, so a randomized MAC is most often another guest's device, not a camera.</td></tr>
+</tbody>
+</table>
+<p>Two interpretation rules keep you from chasing ghosts. First, count the devices you can explain: your own phone and laptop, the TV, the router itself, maybe a speaker or thermostat mentioned in the listing. Whatever is left over is your shortlist. Second, an "unknown" result is a lead, not a verdict. Plenty of smart bulbs report nothing useful. Paste the MAC address into the <a href="/tools/hidden-camera-device-checker/">device checker tool</a> and it will tell you instantly whether the vendor prefix belongs to a known camera maker.</p>
+
+<div class="cta-inline"><p><strong>Scan the network in one tap.</strong> RF Signal Detector lists every device on the Wi-Fi you're connected to with its manufacturer, then flags the ones worth a closer look.</p><a class="btn" href="https://apps.apple.com/app/rf-signal-detector/id6757208480">Get RF Signal Detector free</a></div>
+
+<h2>Private rental vs hotel WiFi: know which scan you are running</h2>
+<p>This is the distinction almost every guide skips, and it changes everything about how much you can trust your results.</p>
+<p>In a private Airbnb or vacation rental, you and the host's devices share one small home network. A scan sees everything: every camera, plug, and sensor the host has installed. This is the ideal case, and a clean, fully explained device list genuinely means no WiFi camera is streaming on that network. If you are sweeping a rental, our full guide on <a href="/guides/how-to-find-hidden-cameras-in-airbnb/">how to find hidden cameras in an Airbnb</a> covers where to point the search once the scan gives you a shortlist.</p>
+<p>Hotel WiFi is a different animal. Large networks enable client isolation, a router setting that prevents guest devices from seeing each other, precisely so one guest cannot snoop on another. On an isolated network your scan will return two or three devices, usually just the gateway and your own phone. That is not an all-clear. A camera in your room could be sitting on the same network, invisible to you, or on the hotel's separate staff network entirely. In hotels, skip straight to a Bluetooth scan for camera modules and trackers and an infrared lens check with your phone camera, both of which work regardless of network setup. The <a href="/guides/how-to-find-hidden-cameras-in-hotel-room/">hotel room sweep guide</a> walks through that sequence in order.</p>
+
+<h2>The second hidden network trick</h2>
+<p>There is one more way a WiFi scan can miss a camera even in a private rental: the camera is not on the guest network at all. Some hosts run their cameras on a second WiFi network, either the router's separate IoT band or a cheap second router, and only give guests the password to the clean one. Scan the guest network and you will find nothing, because there is nothing there to find.</p>
+<p>You can spot this in about thirty seconds. Open your phone's WiFi list and look at every network in range, not just the one you joined. A locked SSID showing full signal strength inside the property, especially one with a name similar to the guest network or a default name like "TP-Link_5G" or "MIFI-XXXX", is broadcasting from very close by. One extra network is normal in an apartment building, but in a standalone house with no neighbors in sight, a second full-strength locked network you were never told about is worth asking the host to explain. Some setups hide the SSID entirely, in which case the network scan shows nothing and only a Bluetooth sweep or lens check will catch the device.</p>
+
+<h2>What to do with a suspicious result</h2>
+<p>Found a device you cannot explain? Work through this in order.</p>
+<h3>1. Record everything first</h3>
+<p>Screenshot the scan showing the device name, IP address, and MAC address. Do not disconnect the device, unplug the router, or change anything. If this turns into a report to Airbnb or the police, the scan record matters, and tipping off whoever is watching helps no one.</p>
+<h3>2. Confirm the manufacturer</h3>
+<p>Run the MAC address through the manufacturer lookup. A Hikvision, Dahua, or V380-style result upgrades your suspicion from "odd" to "there is a camera on this network". A smart-plug vendor may downgrade it. Either way, the lookup tells you what physical object you are hunting for.</p>
+<h3>3. Search along sightlines</h3>
+<p>A camera only earns its keep if it can see something, so search the spots with a clear view of the bed, bathroom, and changing areas. Check smoke detectors, alarm clocks, USB chargers, routers, air purifiers, and anything with a dark plastic face at eye level or above. Turn off the lights and slowly pan your phone's infrared lens detector across the room; a lens or IR illuminator shows up as a bright dot the naked eye misses.</p>
+<h3>4. Escalate if you find hardware</h3>
+<p>If you locate a camera in a private area, photograph it exactly where it sits, then leave it alone. Contact the booking platform through the app so there is a written record, and call local police if the camera covered a bedroom or bathroom. Undisclosed cameras in private spaces are banned by every major rental platform and are illegal in most jurisdictions.</p>
+<p>If the scan and the search both come back clean, that is a real result, not a lucky guess. A WiFi scan, a Bluetooth scan, and a lens check together cover the three ways a camera can exist: streaming on the network, pairing over Bluetooth, or recording silently to a card. If you are wondering whether phone-based detection holds up at all, we tested that question honestly in <a href="/guides/do-hidden-camera-detector-apps-work/">do hidden camera detector apps work</a>.</p>
+
+<h2>Frequently asked questions</h2>
+<h3>Can a WiFi scan really find a hidden camera?</h3>
+<p>Yes, if the camera is connected to the same WiFi network you are scanning. Most consumer spy cameras stream over WiFi, so they show up as a device with an IP address and a manufacturer name. Cameras that record only to an SD card or use a cellular SIM will not appear, which is why a lens check is the right follow-up.</p>
+<h3>What do hidden cameras show up as on a WiFi scan?</h3>
+<p>Common names include IPCAM, V380, ESP32-CAM, Wyze, Yi, or a bare manufacturer name like Hikvision, Dahua, or Espressif. Many cheap cameras appear only as an unknown device with a Chinese electronics vendor in the MAC lookup. A generic result is not proof, but it is a reason to look closer.</p>
+<h3>Why does my scan only show two or three devices in a hotel?</h3>
+<p>Hotel WiFi almost always uses client isolation, which hides guests' devices from each other. Your scan will see little more than the gateway, and that is normal, not a sign the room is clean. In hotels, rely on a Bluetooth scan and an infrared lens check instead of the network scan.</p>
+<h3>What should I do if I find a suspicious device on the WiFi?</h3>
+<p>Do not disconnect or reset it. Note the device name, IP address, and MAC address, run the MAC through a manufacturer lookup, then physically search the room, focusing on spots with a sightline to the bed or bathroom. If you find a camera in a private area, photograph it in place and contact the platform or local police.</p>
